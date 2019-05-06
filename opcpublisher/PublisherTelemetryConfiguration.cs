@@ -633,6 +633,6 @@ namespace OpcPublisher
         private Dictionary<string, EndpointTelemetryConfigurationModel> _endpointTelemetryConfigurationCache;
 
         private static readonly object _singletonLock = new object();
-        private static IPublisherTelemetryConfiguration _instance = null;
+        private static IPublisherTelemetryConfiguration _instance;
     }
 }

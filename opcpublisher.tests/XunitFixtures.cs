@@ -139,7 +139,7 @@ namespace OpcPublisher
         private async Task CleanupContainerAsync()
         {
             IList<ContainerListResponse> containers = await _dockerClient.Containers.ListContainersAsync(
-                new ContainersListParameters()
+                new ContainersListParameters
                 {
                     Limit = 10,
                 });

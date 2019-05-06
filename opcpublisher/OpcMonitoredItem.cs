@@ -618,6 +618,6 @@ namespace OpcPublisher
             }
         }
 
-        private int _heartbeatInterval = 0;
+        private int _heartbeatInterval;
     }
 }

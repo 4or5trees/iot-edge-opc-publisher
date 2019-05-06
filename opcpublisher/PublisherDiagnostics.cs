@@ -121,7 +121,9 @@ namespace OpcPublisher
                 diagnosticInfo.HubMessageSize = HubMessageSize;
                 diagnosticInfo.HubProtocol = HubProtocol;
             }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
             catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
             {
                 // startup might be not completed yet
             }
@@ -250,7 +252,9 @@ namespace OpcPublisher
                     Logger.Information($"--ih setting: {diagnosticInfo.HubProtocol}");
                     Logger.Information("==========================================================================");
                 }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
                 catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
                 {
                 }
             }
@@ -267,7 +271,9 @@ namespace OpcPublisher
             {
                 message = _logQueue.Dequeue();
             }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
             catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
             {
             }
             return message;
@@ -309,7 +315,7 @@ namespace OpcPublisher
         private static List<string> _startupLog = new List<string>();
 
         private static readonly object _singletonLock = new object();
-        private static IPublisherDiagnostics _instance = null;
+        private static IPublisherDiagnostics _instance;
     }
 
     /// <summary>

@@ -103,7 +103,7 @@ namespace OpcPublisher
         /// <summary>
         /// Max allowed payload of an IoTHub direct method call response.
         /// </summary>
-        public static int MaxResponsePayloadLength { get; } = 128 * 1024 - 256;
+        public static int MaxResponsePayloadLength { get; } = (128 * 1024) - 256;
 
         /// <summary>
         /// The protocol to use for hub communication.
@@ -905,7 +905,7 @@ namespace OpcPublisher
                 getConfiguredEndpointsMethodResponse.ContinuationToken = null;
                 if (actualEndpointsCount < availableEndpointCount)
                 {
-                    getConfiguredEndpointsMethodResponse.ContinuationToken = ((ulong)nodeConfigVersion << 32) | actualEndpointsCount + startIndex;
+                    getConfiguredEndpointsMethodResponse.ContinuationToken = ((ulong)nodeConfigVersion << 32) | (actualEndpointsCount + startIndex);
                 }
                 getConfiguredEndpointsMethodResponse.Endpoints.AddRange(endpointUrls.GetRange((int)startIndex, (int)actualEndpointsCount).Select(e => new ConfiguredEndpointModel(e)).ToList());
                 resultString = JsonConvert.SerializeObject(getConfiguredEndpointsMethodResponse);
@@ -1040,7 +1040,7 @@ namespace OpcPublisher
                 getConfiguredNodesOnEndpointMethodResponse.ContinuationToken = null;
                 if (actualNodeCount < availableNodeCount)
                 {
-                    getConfiguredNodesOnEndpointMethodResponse.ContinuationToken = (ulong)nodeConfigVersion << 32 | actualNodeCount + startIndex;
+                    getConfiguredNodesOnEndpointMethodResponse.ContinuationToken = ((ulong)nodeConfigVersion << 32) | (actualNodeCount + startIndex);
                 }
                 getConfiguredNodesOnEndpointMethodResponse.OpcNodes.AddRange(opcNodes.GetRange((int)startIndex, (int)actualNodeCount).Select(n => new OpcNodeOnEndpointModel(n.Id)
                 {

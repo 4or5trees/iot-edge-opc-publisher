@@ -86,6 +86,6 @@ namespace OpcPublisher
 
         public bool RemoveSubscriptions(IEnumerable<Subscription> subscriptions) => _session.RemoveSubscriptions(subscriptions);
 
-        private Session _session = null;
+        private Session _session;
     }
 }

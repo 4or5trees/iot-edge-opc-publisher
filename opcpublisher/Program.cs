@@ -659,7 +659,9 @@ namespace OpcPublisher
                         ShutdownTokenSource.Cancel();
                     };
                 }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
                 catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
                 {
                 }
 
@@ -1074,8 +1076,8 @@ namespace OpcPublisher
         }
 
         private static PublisherServer _publisherServer;
-        private static bool _noShutdown = false;
-        private static bool _installOnly = false;
+        private static bool _noShutdown;
+        private static bool _installOnly;
         private static TimeSpan _logFileFlushTimeSpanSec = TimeSpan.FromSeconds(30);
         private static string _hubProtocols = string.Join(", ", Enum.GetNames(IotHubProtocolDefault.GetType()));
     }

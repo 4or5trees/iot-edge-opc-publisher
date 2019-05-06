@@ -54,7 +54,7 @@ namespace OpcPublisher
     /// <summary>
     /// Class describing the nodes which should be published.
     /// </summary>
-    public partial class PublisherConfigurationFileEntryModel
+    public class PublisherConfigurationFileEntryModel
     {
         public PublisherConfigurationFileEntryModel()
         {
@@ -176,7 +176,7 @@ namespace OpcPublisher
     /// - NodeId syntax using the namespace index (ns) syntax. This is only used in legacy environments and is only supported for backward compatibility.
     /// - List of ExpandedNodeId syntax, to allow putting nodes with similar publishing and/or sampling intervals in one object
     /// </summary>
-    public partial class PublisherConfigurationFileEntryLegacyModel
+    public class PublisherConfigurationFileEntryLegacyModel
     {
         /// <summary>
         /// Ctor of the object.

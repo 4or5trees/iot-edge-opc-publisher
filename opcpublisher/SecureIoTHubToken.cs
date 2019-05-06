@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace OpcPublisher
 {
-    public sealed class SecureIoTHubToken
+    public static class SecureIoTHubToken
     {
         /// <summary>
         /// Returns the token from the cert in the given cert store.

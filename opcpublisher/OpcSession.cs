@@ -45,7 +45,7 @@ namespace OpcPublisher
         /// The version of the node configuration. Each change in the configuration
         /// increments the version to protect get calls using continuation tokens.
         /// </summary>
-        public static int NodeConfigVersion = 0;
+        public static int NodeConfigVersion;
 #pragma warning restore CA2211 // Non-constant fields should not be visible
 
         /// <summary>
@@ -265,7 +265,9 @@ namespace OpcPublisher
                 {
                     _connectAndMonitorAsync.Wait();
                 }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
                 catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
                 {
                 }
                 _sessionCancelationTokenSource?.Dispose();
@@ -298,8 +300,7 @@ namespace OpcPublisher
         {
             uint lastNodeConfigVersion = 0;
 
-            WaitHandle[] connectAndMonitorEvents = new WaitHandle[]
-            {
+            WaitHandle[] connectAndMonitorEvents = {
                 _sessionCancelationToken.WaitHandle,
                 ConnectAndMonitorSession
             };
@@ -601,7 +602,7 @@ namespace OpcPublisher
                             }
 
                             // add the new monitored item.
-                            IOpcUaMonitoredItem monitoredItem = new OpcUaMonitoredItem()
+                            IOpcUaMonitoredItem monitoredItem = new OpcUaMonitoredItem
                             {
                                 StartNodeId = currentNodeId,
                                 AttributeId = item.AttributeId,
@@ -722,7 +723,9 @@ namespace OpcPublisher
                             opcSubscription.OpcUaClientSubscription.RemoveItems(itemsToRemove.Select(i => i.OpcUaClientMonitoredItem));
                             Logger.Information($"There are now {opcSubscription.OpcUaClientSubscription.MonitoredItemCount} monitored items in this subscription.");
                         }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
                         catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
                         {
                             // nodes may be tagged for stop before they are monitored, just continue
                         }
@@ -773,7 +776,9 @@ namespace OpcPublisher
                         OpcUaClientSession.RemoveSubscriptions(subscriptionsToRemove.Select(s => s.OpcUaClientSubscription));
                         Logger.Information($"There are now {OpcUaClientSession.SubscriptionCount} subscriptions in this session.");
                     }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
                     catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
                     {
                         // subsriptions may be no longer required before they are created, just continue
                     }
@@ -874,7 +879,9 @@ namespace OpcPublisher
                             OpcUaClientSession.RemoveSubscription(opcSubscription.OpcUaClientSubscription);
                         }
                     }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
                     catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
                     {
                         // the session might be already invalidated. ignore.
                     }
@@ -894,7 +901,9 @@ namespace OpcPublisher
                 {
                     OpcUaClientSession?.Close();
                 }
+#pragma warning disable RECS0022 // A catch clause that catches System.Exception and has an empty body
                 catch
+#pragma warning restore RECS0022 // A catch clause that catches System.Exception and has an empty body
                 {
                     // the session might be already invalidated. ignore.
                 }
@@ -1223,7 +1232,7 @@ namespace OpcPublisher
         /// </summary>
         private IOpcUaSubscription CreateSubscription(int requestedPublishingInterval, out int revisedPublishingInterval)
         {
-            IOpcUaSubscription subscription = new OpcUaSubscription()
+            IOpcUaSubscription subscription = new OpcUaSubscription
             {
                 PublishingInterval = requestedPublishingInterval,
             };
