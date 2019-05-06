@@ -1,7 +1,6 @@
 ﻿namespace OpcPublisher
 {
     using Microsoft.Azure.Devices;
-    using Microsoft.Azure.Devices.Client;
     using Opc.Ua;
     using System;
     using static OpcApplicationConfiguration;

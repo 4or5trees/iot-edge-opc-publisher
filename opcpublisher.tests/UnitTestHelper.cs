@@ -2,7 +2,6 @@ using System.Threading;
 
 namespace OpcPublisher
 {
-    using System;
     using static Program;
 
     /// <summary>

@@ -7,7 +7,6 @@ namespace OpcPublisher
     using Moq;
     using System;
     using System.IO;
-    using System.Threading;
     using System.Threading.Tasks;
     using Xunit.Abstractions;
     using static Program;
