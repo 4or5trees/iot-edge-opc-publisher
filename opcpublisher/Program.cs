@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace OpcPublisher
 {
+    using Microsoft.Azure.Devices.Client;
     using Opc.Ua;
     using Opc.Ua.Server;
     using Serilog;

@@ -1,5 +1,6 @@
 ﻿namespace OpcPublisher
 {
+    using Microsoft.Azure.Devices.Client;
     using System;
     using static Program;
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace OpcPublisher
 {
     using Opc.Ua;
+    using System.Net.Http;
     using static OpcApplicationConfiguration;
     using static Program;
 

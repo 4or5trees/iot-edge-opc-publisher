@@ -6,6 +6,7 @@ using System.Collections.Generic;
 namespace OpcPublisher
 {
     using System.ComponentModel;
+    using System.Globalization;
 
 
     /// <summary>

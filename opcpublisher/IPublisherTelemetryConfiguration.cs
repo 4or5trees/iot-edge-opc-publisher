@@ -1,4 +1,6 @@
-﻿namespace OpcPublisher
+﻿using System.Collections.Generic;
+
+namespace OpcPublisher
 {
     /// <summary>
     /// Interface to control the telemetry publish, name and pattern properties.
