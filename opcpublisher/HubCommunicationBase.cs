@@ -1607,7 +1607,7 @@ namespace OpcPublisher
                             }
 
                             NumberOfEvents++;
-                            jsonMessageSize = Encoding.UTF8.GetByteCount(jsonMessage.ToString(CultureInfo.InvariantCulture));
+                            jsonMessageSize = Encoding.UTF8.GetByteCount(jsonMessage);
 
                             // sanity check that the user has set a large enough messages size
                             if ((HubMessageSize > 0 && jsonMessageSize > HubMessageSize) || (HubMessageSize == 0 && jsonMessageSize > hubMessageBufferSize))
@@ -1626,7 +1626,7 @@ namespace OpcPublisher
                                 if (hubMessage.Position + jsonMessageSize + 1 <= hubMessage.Capacity)
                                 {
                                     // add the message and a comma to the buffer
-                                    hubMessage.Write(Encoding.UTF8.GetBytes(jsonMessage.ToString(CultureInfo.InvariantCulture)), 0, jsonMessageSize);
+                                    hubMessage.Write(Encoding.UTF8.GetBytes(jsonMessage), 0, jsonMessageSize);
                                     hubMessage.Write(Encoding.UTF8.GetBytes(","), 0, 1);
                                     Logger.Debug($"Added new message with size {jsonMessageSize} to hub message (size is now {(hubMessage.Position - 1)}).");
                                     continue;
@@ -1671,7 +1671,7 @@ namespace OpcPublisher
                             if (singleMessageSend)
                             {
                                 // create the message without brackets
-                                encodedhubMessage = new Message(Encoding.UTF8.GetBytes(jsonMessage.ToString(CultureInfo.InvariantCulture)));
+                                encodedhubMessage = new Message(Encoding.UTF8.GetBytes(jsonMessage));
                             }
                             else
                             {
@@ -1711,7 +1711,7 @@ namespace OpcPublisher
                                 if (needToBufferMessage)
                                 {
                                     // add the message and a comma to the buffer
-                                    hubMessage.Write(Encoding.UTF8.GetBytes(jsonMessage.ToString(CultureInfo.InvariantCulture)), 0, jsonMessageSize);
+                                    hubMessage.Write(Encoding.UTF8.GetBytes(jsonMessage), 0, jsonMessageSize);
                                     hubMessage.Write(Encoding.UTF8.GetBytes(","), 0, 1);
                                 }
                             }
