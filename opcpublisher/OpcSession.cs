@@ -501,14 +501,14 @@ namespace OpcPublisher
                     }
 
                     // process all unmonitored items.
-                    var unmonitoredItems = opcSubscription.OpcMonitoredItems.Where(i => (i.State == OpcMonitoredItemState.Unmonitored || i.State == OpcMonitoredItemState.UnmonitoredNamespaceUpdateRequested));
+                    var unmonitoredItems = opcSubscription.OpcMonitoredItems.Where(i => i.State == OpcMonitoredItemState.Unmonitored || i.State == OpcMonitoredItemState.UnmonitoredNamespaceUpdateRequested);
                     int additionalMonitoredItemsCount = 0;
                     int monitoredItemsCount = 0;
                     bool haveUnmonitoredItems = false;
                     if (unmonitoredItems.Count() != 0)
                     {
                         haveUnmonitoredItems = true;
-                        monitoredItemsCount = opcSubscription.OpcMonitoredItems.Count(i => (i.State == OpcMonitoredItemState.Monitored));
+                        monitoredItemsCount = opcSubscription.OpcMonitoredItems.Count(i => i.State == OpcMonitoredItemState.Monitored);
                         Logger.Information($"Start monitoring items on endpoint '{EndpointUrl}'. Currently monitoring {monitoredItemsCount} items.");
                     }
 
@@ -670,7 +670,7 @@ namespace OpcPublisher
                     stopWatch.Stop();
                     if (haveUnmonitoredItems == true)
                     {
-                        monitoredItemsCount = opcSubscription.OpcMonitoredItems.Count(i => (i.State == OpcMonitoredItemState.Monitored));
+                        monitoredItemsCount = opcSubscription.OpcMonitoredItems.Count(i => i.State == OpcMonitoredItemState.Monitored);
                         Logger.Information($"Done processing unmonitored items on endpoint '{EndpointUrl}' took {stopWatch.ElapsedMilliseconds} msec. Now monitoring {monitoredItemsCount} items in subscription with id '{opcSubscription.OpcUaClientSubscription.Id}'.");
                     }
                 }
@@ -968,7 +968,7 @@ namespace OpcPublisher
                     }
                     if (nodeId == null)
                     {
-                        nodeIdCheck = new NodeId(expandedNodeId.Identifier, (ushort)(_namespaceTable.GetIndex(expandedNodeId.NamespaceUri)));
+                        nodeIdCheck = new NodeId(expandedNodeId.Identifier, (ushort)_namespaceTable.GetIndex(expandedNodeId.NamespaceUri));
                     }
                 }
 
@@ -1045,7 +1045,7 @@ namespace OpcPublisher
                     }
                     if (nodeId == null)
                     {
-                        nodeIdCheck = new NodeId(expandedNodeId.Identifier, (ushort)(_namespaceTable.GetIndex(expandedNodeId.NamespaceUri)));
+                        nodeIdCheck = new NodeId(expandedNodeId.Identifier, (ushort)_namespaceTable.GetIndex(expandedNodeId.NamespaceUri));
                     }
 
                 }

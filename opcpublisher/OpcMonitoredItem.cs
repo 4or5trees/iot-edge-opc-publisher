@@ -238,7 +238,7 @@ namespace OpcPublisher
         public int HeartbeatInterval
         {
             get => _heartbeatInterval;
-            set => _heartbeatInterval = (value <= 0 ? 0 : value > HeartbeatIntvervalMax ? HeartbeatIntvervalMax : value);
+            set => _heartbeatInterval = value <= 0 ? 0 : value > HeartbeatIntvervalMax ? HeartbeatIntvervalMax : value;
         }
 
         public bool HeartbeatIntervalFromConfiguration { get; set; } = false;
@@ -434,7 +434,7 @@ namespace OpcPublisher
                     }
                     if (telemetryConfiguration.MonitoredItem.ApplicationUri.Publish == true)
                     {
-                        messageData.ApplicationUri = (monitoredItem.Subscription.Session.Endpoint.Server.ApplicationUri + (string.IsNullOrEmpty(OpcSession.PublisherSite) ? "" : $":{OpcSession.PublisherSite}"));
+                        messageData.ApplicationUri = monitoredItem.Subscription.Session.Endpoint.Server.ApplicationUri + (string.IsNullOrEmpty(OpcSession.PublisherSite) ? "" : $":{OpcSession.PublisherSite}");
                     }
                     if (telemetryConfiguration.MonitoredItem.DisplayName.Publish == true && monitoredItem.DisplayName != null)
                     {

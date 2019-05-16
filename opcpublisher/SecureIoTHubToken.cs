@@ -220,7 +220,7 @@ namespace OpcPublisher
         /// </summary>
         private static string CheckForToken(X509Certificate2 cert, string name)
         {
-            if ((cert.SubjectName.Decode(X500DistinguishedNameFlags.None | X500DistinguishedNameFlags.DoNotUseQuotes).Equals("CN=" + name, StringComparison.OrdinalIgnoreCase)) &&
+            if (cert.SubjectName.Decode(X500DistinguishedNameFlags.None | X500DistinguishedNameFlags.DoNotUseQuotes).Equals("CN=" + name, StringComparison.OrdinalIgnoreCase) &&
                 (DateTime.Now < cert.NotAfter))
             {
                 RSA rsa = cert.GetRSAPrivateKey();

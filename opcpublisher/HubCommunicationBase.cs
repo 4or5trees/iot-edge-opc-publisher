@@ -1628,7 +1628,7 @@ namespace OpcPublisher
                                     // add the message and a comma to the buffer
                                     hubMessage.Write(Encoding.UTF8.GetBytes(jsonMessage), 0, jsonMessageSize);
                                     hubMessage.Write(Encoding.UTF8.GetBytes(","), 0, 1);
-                                    Logger.Debug($"Added new message with size {jsonMessageSize} to hub message (size is now {(hubMessage.Position - 1)}).");
+                                    Logger.Debug($"Added new message with size {jsonMessageSize} to hub message (size is now {hubMessage.Position - 1}).");
                                     continue;
                                 }
                                 else

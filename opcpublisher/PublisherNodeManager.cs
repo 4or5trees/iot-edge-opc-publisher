@@ -636,7 +636,7 @@ namespace OpcPublisher
             {
                 NodeConfiguration.OpcSessionsListSemaphore.Release();
             }
-            return (statusCode == HttpStatusCode.OK || statusCode == HttpStatusCode.Accepted ? ServiceResult.Good : ServiceResult.Create(StatusCodes.Bad, "Can not stop monitoring node!"));
+            return statusCode == HttpStatusCode.OK || statusCode == HttpStatusCode.Accepted ? ServiceResult.Good : ServiceResult.Create(StatusCodes.Bad, "Can not stop monitoring node!");
         }
 
         /// <summary>
