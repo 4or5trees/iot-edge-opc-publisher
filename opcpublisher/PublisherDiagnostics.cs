@@ -307,7 +307,7 @@ namespace OpcPublisher
         }
 
         private static SemaphoreSlim _logQueueSemaphore = new SemaphoreSlim(1);
-        private static int _logMessageCount = 100;
+        private static readonly int _logMessageCount = 100;
         private static int _missedMessageCount;
         private static Queue<string> _logQueue = new Queue<string>();
         private static CancellationTokenSource _shutdownTokenSource;

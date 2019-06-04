@@ -170,10 +170,10 @@ namespace OpcPublisher
 
         // when testing locally, spin up your own registry and put the image in here
         //string _plcImage = "localhost:5000/opc-plc";
-        string _plcImage = "mcr.microsoft.com/iotedge/opc-plc";
-        string _plcPort = "50000";
+        readonly string _plcImage = "mcr.microsoft.com/iotedge/opc-plc";
+        readonly string _plcPort = "50000";
         DockerClient _dockerClient = null;
-        string _plcContainerId = string.Empty;
+        readonly string _plcContainerId = string.Empty;
     }
 
     public sealed class PlcOpcUaServerFixture : IDisposable

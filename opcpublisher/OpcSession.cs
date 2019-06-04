@@ -387,7 +387,7 @@ namespace OpcPublisher
                 }
                 catch (Exception e)
                 {
-                    if (_sessionCancelationToken != null && !_sessionCancelationToken.IsCancellationRequested)
+                    if (!_sessionCancelationToken.IsCancellationRequested)
                     {
                         Logger.Error(e, "Exception");
                     }
@@ -1380,7 +1380,7 @@ namespace OpcPublisher
             {
                 return false;
             }
-            if (_sessionCancelationToken == null || _sessionCancelationToken.IsCancellationRequested)
+            if (_sessionCancelationToken.IsCancellationRequested)
             {
                 return false;
             }
@@ -1399,7 +1399,7 @@ namespace OpcPublisher
         private CancellationTokenSource _sessionCancelationTokenSource;
         private CancellationToken _sessionCancelationToken;
         private NamespaceTable _namespaceTable;
-        private EndpointTelemetryConfigurationModel _telemetryConfiguration;
+        private readonly EndpointTelemetryConfigurationModel _telemetryConfiguration;
         private Task _connectAndMonitorAsync;
     }
 }

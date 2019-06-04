@@ -320,13 +320,13 @@ namespace OpcPublisher
                             {
                                 desiredAuthenticationMode = OpcAuthenticationMode.Anonymous;
                             }
-                            
+
                             // create new session info.
                             opcSession = new OpcSession(endpointUri.OriginalString, useSecurity, OpcSessionCreationTimeout, desiredAuthenticationMode.Value, desiredEncryptedCredential);
                             NodeConfiguration.OpcSessions.Add(opcSession);
                             Logger.Information($"{logPrefix} No matching session found for endpoint '{endpointUri.OriginalString}'. Requested to create a new one.");
                         }
-                        else 
+                        else
                         {
                             // a session already exists, so we check, if we need to change authentication settings. This is only true, if the payload contains an OpcAuthenticationMode-Property
                             if (desiredAuthenticationMode.HasValue)
@@ -1853,6 +1853,6 @@ namespace OpcPublisher
         private static Task _monitoredItemsProcessorTask;
         private static IHubClient _hubClient;
         private CancellationTokenSource _hubCommunicationCts;
-        private CancellationToken _shutdownToken;
+        private readonly CancellationToken _shutdownToken;
     }
 }

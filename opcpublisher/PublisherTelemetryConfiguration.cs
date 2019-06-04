@@ -649,7 +649,7 @@ namespace OpcPublisher
         }
 
         private TelemetryConfigurationFileModel _telemetryConfiguration;
-        private List<EndpointTelemetryConfigurationModel> _endpointTelemetryConfigurations;
+        private readonly List<EndpointTelemetryConfigurationModel> _endpointTelemetryConfigurations;
         private EndpointTelemetryConfigurationModel _defaultEndpointTelemetryConfiguration;
         private Dictionary<string, EndpointTelemetryConfigurationModel> _endpointTelemetryConfigurationCache;
 

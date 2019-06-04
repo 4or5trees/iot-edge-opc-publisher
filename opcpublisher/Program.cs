@@ -1098,6 +1098,6 @@ namespace OpcPublisher
         private static bool _noShutdown;
         private static bool _installOnly;
         private static TimeSpan _logFileFlushTimeSpanSec = TimeSpan.FromSeconds(30);
-        private static string _hubProtocols = string.Join(", ", Enum.GetNames(IotHubProtocolDefault.GetType()));
+        private static readonly string _hubProtocols = string.Join(", ", Enum.GetNames(IotHubProtocolDefault.GetType()));
     }
 }

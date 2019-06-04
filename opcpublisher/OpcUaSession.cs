@@ -12,8 +12,10 @@ namespace OpcPublisher
     /// </summary>
     public class OpcUaSession : IOpcUaSession
     {
-        public OpcUaSession(ApplicationConfiguration configuration, ConfiguredEndpoint endpoint, bool updateBeforeConnect, bool checkDomain, string sessionName, uint sessionTimeout, IUserIdentity identity, IList<string> preferredLocales) =>
-             _session = Session.Create(configuration, endpoint, updateBeforeConnect, checkDomain, sessionName, sessionTimeout, identity, preferredLocales).Result;
+        public OpcUaSession(ApplicationConfiguration configuration, ConfiguredEndpoint endpoint, bool updateBeforeConnect, bool checkDomain, string sessionName, uint sessionTimeout, IUserIdentity identity, IList<string> preferredLocales)
+        {
+            _session = Session.Create(configuration, endpoint, updateBeforeConnect, checkDomain, sessionName, sessionTimeout, identity, preferredLocales).Result;
+        }
 
         /// <summary>
         /// Implement IDisposable.
