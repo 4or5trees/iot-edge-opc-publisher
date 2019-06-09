@@ -1397,9 +1397,9 @@ namespace OpcPublisher
 
         private SemaphoreSlim _opcSessionSemaphore;
         private CancellationTokenSource _sessionCancelationTokenSource;
-        private CancellationToken _sessionCancelationToken;
-        private NamespaceTable _namespaceTable;
+        private readonly CancellationToken _sessionCancelationToken;
+        private readonly NamespaceTable _namespaceTable;
         private readonly EndpointTelemetryConfigurationModel _telemetryConfiguration;
-        private Task _connectAndMonitorAsync;
+        private readonly Task _connectAndMonitorAsync;
     }
 }

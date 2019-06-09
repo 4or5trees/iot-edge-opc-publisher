@@ -306,13 +306,13 @@ namespace OpcPublisher
             }
         }
 
-        private static SemaphoreSlim _logQueueSemaphore = new SemaphoreSlim(1);
+        private static readonly SemaphoreSlim _logQueueSemaphore = new SemaphoreSlim(1);
         private static readonly int _logMessageCount = 100;
         private static int _missedMessageCount;
-        private static Queue<string> _logQueue = new Queue<string>();
+        private static readonly Queue<string> _logQueue = new Queue<string>();
         private static CancellationTokenSource _shutdownTokenSource;
         private static Task _showDiagnosticsInfoTask;
-        private static List<string> _startupLog = new List<string>();
+        private static readonly List<string> _startupLog = new List<string>();
 
         private static readonly object _singletonLock = new object();
         private static IPublisherDiagnostics _instance;

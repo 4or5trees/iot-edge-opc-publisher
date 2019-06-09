@@ -172,7 +172,7 @@ namespace OpcPublisher
         //string _plcImage = "localhost:5000/opc-plc";
         readonly string _plcImage = "mcr.microsoft.com/iotedge/opc-plc";
         readonly string _plcPort = "50000";
-        DockerClient _dockerClient = null;
+        readonly DockerClient _dockerClient;
         readonly string _plcContainerId = string.Empty;
     }
 
