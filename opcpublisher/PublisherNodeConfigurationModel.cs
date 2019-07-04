@@ -8,8 +8,6 @@ namespace OpcPublisher
     using Newtonsoft.Json.Converters;
     using OpcPublisher.Crypto;
     using System.ComponentModel;
-    using System.Globalization;
-    using System.Net;
 
 
     /// <summary>
@@ -95,7 +93,9 @@ namespace OpcPublisher
             set
             {
                 if (EncryptedAuthCredential == null)
+                {
                     EncryptedAuthCredential = new EncryptedNetworkCredential();
+                }
 
                 EncryptedAuthCredential.UserName = value;
             }
@@ -114,7 +114,9 @@ namespace OpcPublisher
             set
             {
                 if (EncryptedAuthCredential == null)
+                {
                     EncryptedAuthCredential = new EncryptedNetworkCredential();
+                }
 
                 EncryptedAuthCredential.Password = value;
             }
@@ -301,7 +303,9 @@ namespace OpcPublisher
             set
             {
                 if (EncryptedAuthCredential == null)
+                {
                     EncryptedAuthCredential = new EncryptedNetworkCredential();
+                }
 
                 EncryptedAuthCredential.UserName = value;
             }
@@ -320,7 +324,9 @@ namespace OpcPublisher
             set
             {
                 if (EncryptedAuthCredential == null)
+                {
                     EncryptedAuthCredential = new EncryptedNetworkCredential();
+                }
 
                 EncryptedAuthCredential.Password = value;
             }
